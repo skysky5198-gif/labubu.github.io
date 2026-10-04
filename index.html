@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>POP MART Official Store - Labubu Special Edition</title>
+
+  <!-- ========================================================= -->
+  <!-- 1. DÁN MÃ VWO ASYNCHRONOUS SMARTCODE CỦA BẠN VÀO ĐÂY       -->
+  <!-- ========================================================= -->
+  <!-- Start VWO Async SmartCode -->
+  <!-- (Thay thế đoạn này bằng mã SmartCode lấy từ tài khoản VWO) -->
+  <!-- End VWO Async SmartCode -->
+
+  <style>
+    :root {
+      --primary-color: #ff3e6c;
+      --bg-gray: #f5f6f8;
+      --border-color: #e0e0e0;
+      --text-main: #222222;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: var(--bg-gray);
+      color: var(--text-main);
+    }
+
+    /* Header Navigation */
+    header {
+      background: #111;
+      color: #fff;
+      padding: 15px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h1 {
+      font-size: 20px;
+      letter-spacing: 2px;
+      color: #fff;
+    }
+
+    /* Layout Main */
+    .container {
+      max-width: 1200px;
+      margin: 30px auto;
+      display: flex;
+      gap: 30px;
+      padding: 0 20px;
+    }
+
+    /* Sidebar Filter (Bên trái) */
+    aside {
+      width: 240px;
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      height: fit-content;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+
+    aside h3 {
+      font-size: 16px;
+      margin-bottom: 15px;
+      border-bottom: 2px solid #222;
+      padding-bottom: 8px;
+    }
+
+    .filter-group {
+      margin-bottom: 20px;
+    }
+
+    .filter-group h4 {
+      font-size: 14px;
+      margin-bottom: 10px;
+      color: #666;
+    }
+
+    .filter-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 13px;
+      cursor: pointer;
+    }
+
+    /* Main Showcase Area (Bên phải) */
+    main {
+      flex: 1;
+    }
+
+    .product-detail-card {
+      background: white;
+      border-radius: 16px;
+      padding: 30px;
+      display: flex;
+      gap: 40px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+    }
+
+    .product-gallery {
+      flex: 1;
+      text-align: center;
+    }
+
+    /* Ảnh sản phẩm chính - Đối tượng thử nghiệm A/B Test */
+    .product-gallery img {
+      width: 100%;
+      max-width: 420px;
+      border-radius: 12px;
+      object-fit: cover;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .product-info {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .badge {
+      display: inline-block;
+      background: var(--primary-color);
+      color: white;
+      padding: 4px 10px;
+      font-size: 12px;
+      font-weight: bold;
+      border-radius: 4px;
+      width: fit-content;
+      margin-bottom: 12px;
+    }
+
+    .product-title {
+      font-size: 26px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      line-height: 1.3;
+    }
+
+    .product-desc {
+      font-size: 14px;
+      color: #666;
+      margin-bottom: 20px;
+      line-height: 1.5;
+    }
+
+    .price-box {
+      margin-bottom: 25px;
+    }
+
+    .original-price {
+      text-decoration: line-through;
+      color: #999;
+      font-size: 14px;
+    }
+
+    .current-price {
+      font-size: 28px;
+      font-weight: 800;
+      color: #222;
+    }
+
+    /* Nút CTA - Mục tiêu đo lường Conversion Rate */
+    .btn-buy {
+      background-color: var(--primary-color);
+      color: white;
+      border: none;
+      padding: 16px 32px;
+      font-size: 18px;
+      font-weight: bold;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.2s ease, transform 0.1s ease;
+      width: 100%;
+    }
+
+    .btn-buy:hover {
+      background-color: #e0325c;
+      transform: translateY(-2px);
+    }
+
+    @media (max-width: 768px) {
+      .container { flex-direction: column; }
+      aside { width: 100%; }
+      .product-detail-card { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>POP MART ONLINE STORE</h1>
+    <span>Global Shipping</span>
+  </header>
+
+  <div class="container">
+    <!-- Thanh bộ lọc bên trái -->
+    <aside>
+      <h3>카테고리 (Danh mục)</h3>
+      <div class="filter-group">
+        <h4>시리즈 (Series)</h4>
+        <label><input type="checkbox" checked> The Monsters (Labubu)</label>
+        <label><input type="checkbox"> Molly</label>
+        <label><input type="checkbox"> SKULLPANDA</label>
+        <label><input type="checkbox"> Dimoo</label>
+      </div>
+      <div class="filter-group">
+        <h4>가격 (Mức giá)</h4>
+        <label><input type="checkbox"> 10,000원 이하</label>
+        <label><input type="checkbox" checked> 10,000원 - 50,000원</label>
+      </div>
+    </aside>
+
+    <!-- Trang chi tiết sản phẩm chính -->
+    <main>
+      <div class="product-detail-card">
+        <div class="product-gallery">
+          <!-- HÌNH ẢNH SẢN PHẨM CHÍNH (Được thay thế bằng VWO Visual Editor) -->
+          <img id="labubu-hero-image" src="labubu-combo.jpg.jpg" alt="POP MART Labubu Series">
+        </div>
+
+        <div class="product-info">
+          <span class="badge">HOT ITEM</span>
+          <h2 class="product-title">POP MART Labubu The Monsters Plush Pendant Series</h2>
+          <p class="product-desc">
+            정품 POP MART 라부부 키링 블라인드 박스 시리즈. 귀여운 디자인과 높은 소장 가치를 자랑합니다.
+          </p>
+          
+          <div class="price-box">
+            <span class="original-price">38,000 KRW</span>
+            <div class="current-price">32,000 KRW</div>
+          </div>
+
+          <!-- NÚT BẤM MUA HÀNG CẦN MỤC TIÊU VWO (Target Element) -->
+          <button id="test-button" class="btn-buy">구매하기 (Mua ngay)</button>
+        </div>
+      </div>
+    </main>
+  </div>
+
+</body>
+</html>
