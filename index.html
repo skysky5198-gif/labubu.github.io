@@ -15,10 +15,94 @@
           hide_element = 'body',
           hide_element_style =
           'opacity:0 !important;filter:alpha(opacity=0) !important;background:none !important;transition:none !important';
+
       /* DO NOT EDIT BELOW THIS LINE */
-      var n=window,i=document;if(-1<i.URL.indexOf('__wingify_disable__')||n._wingify_code)return;var t=!1,r=i.currentScript,nonce=r&&r.nonce,e={sT:settings_tolerance,hES:hide_element_style,hE:hide_element};try{e=Object.assign(e,JSON.parse(localStorage.getItem('_wingify_'+account_id+'_config')))}catch(e){}var code={script:r,nonce:nonce,settings_tolerance:function(){return e.sT},hide_element:function(){return performance.getEntriesByName('first-contentful-paint')[0]?'':e.hE},hide_element_style:function(){return'{'+e.hES+'}'},getVersion:function(){return version},finish:function(){var e;!t&&(t=!0,e=i.getElementById('_vis_opt_path_hides'))&&e.parentNode.removeChild(e)},finished:function(){return t},addScript:function(e){var t=i.createElement('script');t.src=e,nonce&&t.setAttribute('nonce',nonce),t.fetchPriority='high',i.head.appendChild(t)},init:function(){n._settings_timer=setTimeout(function(){code.finish()},this.settings_tolerance());var e,t=this.hide_element();t&&((e=i.createElement('style')).id='_vis_opt_path_hides',nonce&&e.setAttribute('nonce',nonce),e.textContent=t+this.hide_element_style(),i.head.appendChild(e)),this.addScript('https://edge.wingify.net/tag/'+account_id+'.js')}};n._wingify_code=code;code.init();})();
+      var n=window,i=document;
+      if(-1<i.URL.indexOf('__wingify_disable__')||n._wingify_code)return;
+
+      var t=!1,
+          r=i.currentScript,
+          nonce=r&&r.nonce,
+          e={
+            sT:settings_tolerance,
+            hES:hide_element_style,
+            hE:hide_element
+          };
+
+      try {
+        e=Object.assign(
+          e,
+          JSON.parse(localStorage.getItem('_wingify_'+account_id+'_config'))
+        )
+      } catch(e){}
+
+      var code={
+        script:r,
+        nonce:nonce,
+
+        settings_tolerance:function(){
+          return e.sT
+        },
+
+        hide_element:function(){
+          return performance.getEntriesByName('first-contentful-paint')[0]?'':e.hE
+        },
+
+        hide_element_style:function(){
+          return'{'+e.hES+'}'
+        },
+
+        getVersion:function(){
+          return version
+        },
+
+        finish:function(){
+          var e;
+          !t&&(t=!0,e=i.getElementById('_vis_opt_path_hides'))&&e.parentNode.removeChild(e)
+        },
+
+        finished:function(){
+          return t
+        },
+
+        addScript:function(e){
+          var t=i.createElement('script');
+          t.src=e;
+          nonce&&t.setAttribute('nonce',nonce);
+          t.fetchPriority='high';
+          i.head.appendChild(t)
+        },
+
+        init:function(){
+          n._settings_timer=setTimeout(
+            function(){
+              code.finish()
+            },
+            this.settings_tolerance()
+          );
+
+          var e,t=this.hide_element();
+
+          t&&(
+            (e=i.createElement('style')).id='_vis_opt_path_hides',
+            nonce&&e.setAttribute('nonce',nonce),
+            e.textContent=t+this.hide_element_style(),
+            i.head.appendChild(e)
+          );
+
+          this.addScript(
+            'https://edge.wingify.net/tag/'+account_id+'.js'
+          )
+        }
+      };
+
+      n._wingify_code=code;
+      code.init();
+
+  })();
   </script> 
-  <!--End Wingify Async SmartCode -->
+  <!-- End Wingify Async SmartCode -->
+
 
   <style>
     :root {
@@ -26,6 +110,8 @@
       --bg-gray: #f5f6f8;
       --border-color: #e0e0e0;
       --text-main: #222222;
+      --gift-bg: #fff3f6;
+      --gift-border: #ffb6c8;
     }
 
     * {
@@ -35,12 +121,16 @@
     }
 
     body {
-      font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      font-family: 'Pretendard', -apple-system, BlinkMacSystemFont,
+                   'Segoe UI', Roboto, sans-serif;
       background-color: var(--bg-gray);
       color: var(--text-main);
     }
 
-    /* Header Navigation */
+    /* =========================
+       Header
+       ========================= */
+
     header {
       background: #111;
       color: #fff;
@@ -56,7 +146,10 @@
       color: #fff;
     }
 
-    /* Layout Main */
+    /* =========================
+       Main Layout
+       ========================= */
+
     .container {
       max-width: 1200px;
       margin: 30px auto;
@@ -65,7 +158,10 @@
       padding: 0 20px;
     }
 
-    /* Sidebar Filter (Bên trái) */
+    /* =========================
+       Sidebar
+       ========================= */
+
     aside {
       width: 240px;
       background: white;
@@ -99,7 +195,10 @@
       cursor: pointer;
     }
 
-    /* Main Showcase Area (Bên phải) */
+    /* =========================
+       Main Product Area
+       ========================= */
+
     main {
       flex: 1;
     }
@@ -113,12 +212,21 @@
       box-shadow: 0 4px 16px rgba(0,0,0,0.06);
     }
 
+    /* =========================
+       Product Image
+       ========================= */
+
     .product-gallery {
       flex: 1;
       text-align: center;
     }
 
-    /* Ảnh sản phẩm chính - Đối tượng thử nghiệm A/B Test */
+    /*
+      IMPORTANT:
+      상품 이미지는 A/B 테스트에서 변경하지 않는다.
+      두 그룹 모두 동일한 이미지를 사용한다.
+    */
+
     .product-gallery img {
       width: 100%;
       max-width: 420px;
@@ -126,6 +234,10 @@
       object-fit: cover;
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
+
+    /* =========================
+       Product Information
+       ========================= */
 
     .product-info {
       flex: 1;
@@ -160,6 +272,10 @@
       line-height: 1.5;
     }
 
+    /* =========================
+       Price
+       ========================= */
+
     .price-box {
       margin-bottom: 25px;
     }
@@ -176,7 +292,42 @@
       color: #222;
     }
 
-    /* Nút CTA - Mục tiêu đo lường Conversion Rate */
+    /* =========================
+       Limited Gift Area
+       ========================= */
+
+    /*
+      A안에서는 숨겨져 있다.
+      B안에서는 VWO를 통해 표시한다.
+    */
+
+    #gift-benefit {
+      display: none;
+      background: var(--gift-bg);
+      border: 1px solid var(--gift-border);
+      border-radius: 8px;
+      padding: 12px 14px;
+      margin-bottom: 15px;
+      font-size: 14px;
+      font-weight: 700;
+      color: #e0325c;
+      line-height: 1.4;
+    }
+
+    #gift-benefit .gift-icon {
+      margin-right: 5px;
+    }
+
+    /* =========================
+       CTA Button
+       ========================= */
+
+    /*
+      VWO 목표 측정 대상
+      두 그룹 모두 동일한 버튼을 사용하고,
+      B안에서 버튼 문구만 변경한다.
+    */
+
     .btn-buy {
       background-color: var(--primary-color);
       color: white;
@@ -195,63 +346,219 @@
       transform: translateY(-2px);
     }
 
+    /* =========================
+       Responsive
+       ========================= */
+
     @media (max-width: 768px) {
-      .container { flex-direction: column; }
-      aside { width: 100%; }
-      .product-detail-card { flex-direction: column; }
+
+      .container {
+        flex-direction: column;
+      }
+
+      aside {
+        width: 100%;
+      }
+
+      .product-detail-card {
+        flex-direction: column;
+      }
+
+      .product-gallery img {
+        max-width: 100%;
+      }
     }
+
   </style>
 </head>
+
+
 <body>
+
+  <!-- =========================
+       Header
+       ========================= -->
 
   <header>
     <h1>POP MART ONLINE STORE</h1>
     <span>Global Shipping</span>
   </header>
 
+
+  <!-- =========================
+       Main Container
+       ========================= -->
+
   <div class="container">
-    <!-- Thanh bộ lọc bên trái -->
+
+    <!-- =========================
+         Sidebar Filter
+         ========================= -->
+
     <aside>
-      <h3>카테고리 (Danh mục)</h3>
+
+      <h3>카테고리</h3>
+
       <div class="filter-group">
-        <h4>시리즈 (Series)</h4>
-        <label><input type="checkbox" checked> The Monsters (Labubu)</label>
-        <label><input type="checkbox"> Molly</label>
-        <label><input type="checkbox"> SKULLPANDA</label>
-        <label><input type="checkbox"> Dimoo</label>
+
+        <h4>시리즈</h4>
+
+        <label>
+          <input type="checkbox" checked>
+          The Monsters (Labubu)
+        </label>
+
+        <label>
+          <input type="checkbox">
+          Molly
+        </label>
+
+        <label>
+          <input type="checkbox">
+          SKULLPANDA
+        </label>
+
+        <label>
+          <input type="checkbox">
+          Dimoo
+        </label>
+
       </div>
+
+
       <div class="filter-group">
-        <h4>가격 (Mức giá)</h4>
-        <label><input type="checkbox"> 10,000원 이하</label>
-        <label><input type="checkbox" checked> 10,000원 - 50,000원</label>
+
+        <h4>가격</h4>
+
+        <label>
+          <input type="checkbox">
+          10,000원 이하
+        </label>
+
+        <label>
+          <input type="checkbox" checked>
+          10,000원 - 50,000원
+        </label>
+
       </div>
+
     </aside>
 
-    <!-- Trang chi tiết sản phẩm chính -->
+
+    <!-- =========================
+         Product Detail
+         ========================= -->
+
     <main>
+
       <div class="product-detail-card">
+
+
+        <!-- =========================
+             Product Image
+             ========================= -->
+
         <div class="product-gallery">
-          <!-- HÌNH ẢNH SẢN PHẨM CHÍNH -->
-          <img id="labubu-hero-image" src="labubu-combo.jpg.jpg" alt="POP MART Labubu Series">
+
+          <!--
+            A/B 테스트의 통제변수:
+            상품 이미지
+          -->
+
+          <img
+            id="labubu-hero-image"
+            src="labubu-combo.jpg.jpg"
+            alt="POP MART Labubu The Monsters Plush Pendant Series"
+          >
+
         </div>
+
+
+        <!-- =========================
+             Product Information
+             ========================= -->
 
         <div class="product-info">
-          <span class="badge">HOT ITEM</span>
-          <h2 class="product-title">POP MART Labubu The Monsters Plush Pendant Series</h2>
+
+          <span class="badge">
+            HOT ITEM
+          </span>
+
+
+          <h2 class="product-title">
+            POP MART Labubu The Monsters Plush Pendant Series
+          </h2>
+
+
           <p class="product-desc">
-            정품 POP MART 라부부 키링 블라인드 박스 시리즈. 귀여운 디자인과 높은 소장 가치를 자랑합니다.
+            정품 POP MART 라부부 키링 블라인드 박스 시리즈.
+            귀여운 디자인과 높은 소장 가치를 자랑합니다.
           </p>
-          
+
+
+          <!-- Price -->
+
           <div class="price-box">
-            <span class="original-price">38,000 KRW</span>
-            <div class="current-price">32,000 KRW</div>
+
+            <span class="original-price">
+              38,000 KRW
+            </span>
+
+            <div class="current-price">
+              32,000 KRW
+            </div>
+
           </div>
 
-          <!-- NÚT BẤM MUA HÀNG CẦN MỤC TIÊU VWO -->
-          <button id="test-button" class="btn-buy">구매하기 (Mua ngay)</button>
+
+          <!--
+            ==========================================
+            한정 사은품 영역
+            ==========================================
+
+            A안:
+            display:none → 사용자에게 보이지 않음
+
+            B안:
+            VWO에서 이 영역을 표시하고
+            문구를 노출한다.
+          -->
+
+          <div id="gift-benefit">
+
+            <span class="gift-icon">🎁</span>
+
+            지금 구매하면 한정 사은품 증정
+
+          </div>
+
+
+          <!--
+            ==========================================
+            CTA Button
+            ==========================================
+
+            A안:
+            구매하기
+
+            B안:
+            사은품 받고 구매하기
+          -->
+
+          <button
+            id="test-button"
+            class="btn-buy"
+          >
+            구매하기
+          </button>
+
+
         </div>
+
       </div>
+
     </main>
+
   </div>
 
 </body>
